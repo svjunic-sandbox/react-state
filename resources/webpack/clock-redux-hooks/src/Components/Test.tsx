@@ -17,7 +17,7 @@ const Test: React.FC = () => {
 
   useEffect(() => {
     // 非同期確認用
-    dispatch(asyncGetData({ url: '/' }));
+    dispatch(asyncGetData({ url: '/react-state/' }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

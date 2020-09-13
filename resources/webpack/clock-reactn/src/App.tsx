@@ -20,7 +20,7 @@ addReducer('setIsLoading', (global, dispatch, isLoading) => {
 addReducer('asyncGetDataReducer', async (global, dispatch, action) => {
   dispatch.setIsLoading(true);
 
-  const res = await axios.head('/');
+  const res = await axios.head('/react-state/');
 
   await new Promise(function (resolve) {
     // 確認のためにちょっと送らせてみるよ！
