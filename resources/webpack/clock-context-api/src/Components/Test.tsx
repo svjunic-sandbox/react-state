@@ -17,7 +17,7 @@ const Test: React.FC = () => {
     // 非同期確認用
     testContext.testDispatch({ type: 'ASYNC_GET_DATA_START' });
 
-    getData({ url: '/' })
+    getData({ url: '/react-state/' })
       .then((res) => {
         testContext.testDispatch({ type: 'ASYNC_GET_DATA_DONE', value: { result: res.headers.date } });
       })

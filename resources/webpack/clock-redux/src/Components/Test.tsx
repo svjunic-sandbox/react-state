@@ -11,7 +11,7 @@ const Test: React.FC<ITestState & ITestHandler> = ({ text, setText, apiResult, a
 
   useEffect(() => {
     // 非同期確認用
-    asyncGetData('/');
+    asyncGetData('/react-state/');
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
