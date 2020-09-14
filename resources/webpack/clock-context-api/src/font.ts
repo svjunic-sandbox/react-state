@@ -147,15 +147,18 @@ export const getEnabledFontSize = (fontName: string): number[] | undefined => {
   });
 
   if (!filteredList.length) {
-    return undefined;
+    return [400];
   }
 
   const result = filteredList[0].fontsizelist
     .replace(/(\d)/g, '$100')
     .split(',')
     .map((val) => {
+      //console.log(val);
       return parseInt(val, 10);
     });
+
+  console.log(result);
 
   return result;
 };

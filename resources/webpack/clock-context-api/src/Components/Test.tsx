@@ -19,10 +19,12 @@ const Test: React.FC = () => {
 
     getData({ url: '/react-state/' })
       .then((res) => {
+        console.log('--------------------');
+        console.log(res);
         testContext.testDispatch({ type: 'ASYNC_GET_DATA_DONE', value: { result: res.headers.date } });
       })
-      .catch((error) => {
-        testContext.testDispatch({ type: 'ASYNC_GET_DATA_FAILD', value: { error: error } });
+      .catch((error: Error) => {
+        testContext.testDispatch({ type: 'ASYNC_GET_DATA_FAILD', value: { error: error.message } });
       });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -32,6 +34,8 @@ const Test: React.FC = () => {
     testContext.testDispatch({ type: 'TEXT_UPDATE', value: localText });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [localText]);
+
+  console.log(testContext.testState);
 
   return (
     <>
