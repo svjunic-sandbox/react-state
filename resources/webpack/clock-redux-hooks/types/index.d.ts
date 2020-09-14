@@ -13,4 +13,4 @@ declare interface IColor {
 
 declare type IAsyncGetDataParams = { url: string };
 declare type IAsyncDataGetResult = { date: string };
-declare type IAsyncDataGetError = { text: string };
+declare type IAsyncDataGetError = Error;

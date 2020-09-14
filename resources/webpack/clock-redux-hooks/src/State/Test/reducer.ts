@@ -31,7 +31,7 @@ export const TestReducer = reducerWithInitialState(initialState)
     console.log('done');
     return { ...state, apiResult: result.date };
   })
-  .case(asyncGetData.async.failed, (state, { error }) => {
+  .case(asyncGetData.async.failed, (state, result) => {
     console.log('failed');
-    return { ...state, apiResult: error.text };
+    return { ...state, apiResult: result.error.message };
   });
