@@ -40,7 +40,7 @@ const App: React.FC = () => {
         <ScreenSetting />
       </ScreenSettingContext.Provider>
       <hr className="hr" />
-      <TestContext.Provider value={{ testState, testDispatch } as ITestContext}>
+      <TestContext.Provider value={{ testState, testDispatch }}>
         <Test></Test>
       </TestContext.Provider>
     </div>
