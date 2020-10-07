@@ -11,11 +11,10 @@ type headServerTimeReturnType = {
   date: string;
 };
 
-const asyncGetData = createAsyncThunk<headServerTimeReturnType>(
-  //hoge
+export const asyncGetData = createAsyncThunk<headServerTimeReturnType>(
   'servertime/head',
-  async (arg, thunk): Promise<headServerTimeReturnType> => {
-    const asyncResp = await axios.head('/');
+  async (): Promise<headServerTimeReturnType> => {
+    const asyncResp = await axios.head('./');
 
     // 遅延の動作を確認するために無理やり遅延
     await new Promise(function (resolve) {
@@ -41,7 +40,28 @@ const testState = createSlice({
 
   // redux-thunk
   extraReducers: (builder) => {
+    //// {{{ typescripotだと型がうまく行かず、この書き方はできないぽい
+    //  [`${asyncGetData.fulfilled}`]: (state, action) => {
+    //    return {
+    //      ...state,
+    //    };
+    //  },
+    //// }}}
+    builder.addCase(asyncGetData.pending, (state, action) => {
+      console.log(action.type);
+      return {
+        ...state,
+      };
+    });
     builder.addCase(asyncGetData.fulfilled, (state, action) => {
+      console.log(action.type);
+      return {
+        ...state,
+        apiResult: action.payload.date,
+      };
+    });
+    builder.addCase(asyncGetData.rejected, (state, action) => {
+      console.log(action.type);
       return {
         ...state,
       };
