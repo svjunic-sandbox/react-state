@@ -11,7 +11,7 @@ import {
   setFontColor,
   setBackgroundColor,
   setEnabledShowMilliseconds,
-} from '~/State/ScreenSetting/action.ts';
+} from '~/features/screenSetting/action.ts';
 
 //ここにstateの初期値を書く
 export const initialState: IScreenSettingState = {
