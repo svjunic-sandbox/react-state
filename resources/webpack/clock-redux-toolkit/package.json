@@ -7,8 +7,8 @@
     "start": "concurrently \"npm run develop\" \"npm run server\"",
     "server": "lite-server -c server.json",
     "develop": "npm run webpack -- --devtool inline-source-map --watch",
-    "webpack": "BABEL_ENV=development NODE_ENV=development webpack --config webpack.config.js --mode development --colors --display-error-details --progress",
-    "minify": "BABEL_ENV=production NODE_ENV=production webpack --config webpack.config.js --colors --display-error-details --progress --mode production"
+    "webpack": "NODE_ENV=development webpack --config webpack.config.js --colors --display-error-details --progress --mode development",
+    "minify": "NODE_ENV=production webpack --config webpack.config.js --colors --display-error-details --progress --mode production"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -48,11 +48,11 @@
     "remote-redux-devtools": "^0.5.16",
     "sass-loader": "^10.0.2",
     "style-loader": "^1.2.1",
+    "terser-webpack-plugin": "^4.2.2",
     "ts-loader": "^8.0.3",
     "typescript": "^4.0.2",
     "typescript-fsa-redux-thunk": "^2.10.0",
     "typesync": "^0.7.0",
-    "uglifyjs-webpack-plugin": "^2.2.0",
     "webfontloader": "^1.6.28",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
