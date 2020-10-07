@@ -4,12 +4,14 @@ console.log(process.env.NODE_ENV);
 
 const path = require('path');
 const webpack = require('webpack');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 const DOCUMENT_ROOT = '../../../docs/';
 const RESOURCES_ROOT = './src/';
 
 module.exports = function () {
+  const isProduction = process.env.NODE_ENV === 'production';
+
   const entries = {
     'js/index': path.join(__dirname, `${RESOURCES_ROOT}index.tsx`),
   };
@@ -33,15 +35,12 @@ module.exports = function () {
     },
   };
 
-  if (process.env.NODE_ENV === 'production') {
+  if (isProduction) {
     optimization = Object.assign(optimization, {
       minimizer: [
-        new UglifyJsPlugin({
-          uglifyOptions: {
-            warnings: false,
-            compress: {
-              drop_console: true,
-            },
+        new TerserPlugin({
+          terserOptions: {
+            compress: { drop_console: true },
           },
         }),
       ],
@@ -68,14 +67,15 @@ module.exports = function () {
       rules: [
         {
           test: /\.tsx?$/,
-          exclude: [/node_modules/, /types/],
+          //exclude: [/node_modules/, /types/],
+          exclude: [/types/],
           use: [
             {
               loader: 'ts-loader',
-              //options: {
-              //  transpileOnly: true,
-              //  configFile: 'tsconfig.json',
-              //},
+              options: {
+                //transpileOnly: true,
+                configFile: 'tsconfig.json', // default value
+              },
             },
           ],
         },
