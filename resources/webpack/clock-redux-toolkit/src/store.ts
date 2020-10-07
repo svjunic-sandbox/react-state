@@ -2,12 +2,10 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import rootReducer from '~/rootReducer';
 
-import testState from './State/Test';
+import testState from './State/Test/index';
 
-const store = configureStore({
-  test: testState.reducer,
+export default configureStore({
+  reducer: {
+    test: testState.reducer,
+  },
 });
-
-//export type AppDispatch = typeof store.dispatch;
-
-export default store;
