@@ -3,8 +3,6 @@
 
 import { reducerWithInitialState } from 'typescript-fsa-reducers';
 
-// import { init } from '~/State/Screen/action.ts';
-
 //ここにstateの初期値を書く
 export const initialState: IScreenState = {};
 

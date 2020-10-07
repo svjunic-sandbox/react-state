@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import store from '~/store.ts';
 
 // container
-//import Screen from '~/Container/Screen/index.tsx';
-//import ScreenSetting from '~/Container/ScreenSetting/index.tsx';
 import Test from '~/container/test/index.tsx';
 
 import { Provider } from 'react-redux';

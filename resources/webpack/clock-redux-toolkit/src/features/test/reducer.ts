@@ -3,7 +3,7 @@
 
 import { reducerWithInitialState } from 'typescript-fsa-reducers';
 
-import { init, setText, asyncGetData } from '~/State/Test/action.ts';
+import { init, setText, asyncGetData } from '~/features/test/action.ts';
 
 //ここにstateの初期値を書く
 export const initialState: ITestState = {

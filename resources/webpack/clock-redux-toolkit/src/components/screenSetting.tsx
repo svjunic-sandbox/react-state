@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { SketchPicker } from 'react-color';
 
-import { setFontSize, setFontFamily, setFontWeight, setFontColor, setBackgroundColor, setEnabledShowMilliseconds } from '~/State/ScreenSetting/action.ts';
-import { IScreenSettingHandler } from '~/Container/ScreenSetting/index.tsx';
+import { setFontSize, setFontFamily, setFontWeight, setFontColor, setBackgroundColor, setEnabledShowMilliseconds } from '~/features/screenSetting/action.ts';
+import { IScreenSettingHandler } from '~/container/screenSetting/index.tsx';
 import { FONT_NAME_LIST, getEnabledFontSize } from '~/font.ts';
 import { useSessionStorage } from 'beautiful-react-hooks';
 
-import RadioControl from '~/Components/RadioControl/index.tsx';
-import SelectControl from '~/Components/SelectControl/index.tsx';
+import RadioControl from '~/components/radioControl/index.tsx';
+import SelectControl from '~/components/selectControl/index.tsx';
 
 const ScreenSetting: React.FC<IScreenSettingState & IScreenSettingHandler> = ({ fontSize, fontFamily, fontWeight, fontColor, backgroundColor, enabledShowMilliseconds, setFontSize, setFontFamily, setFontWeight, setFontColor, setBackgroundColor, setEnabledShowMilliseconds }) => {
   const [minFontSize, setMinFontSize] = useState(28);

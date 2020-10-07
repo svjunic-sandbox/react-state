@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useRequestAnimationFrame } from 'beautiful-react-hooks';
-import ScreenPanel from '~/Components/ScreenPanel.tsx';
+import ScreenPanel from '~/components/screenPanel.tsx';
 
-import { ZeroPadidng, ColorToRGBA } from '~/Beans/';
+import { ZeroPadidng, ColorToRGBA } from '~/beans/';
 
 export interface screenProps {}
 
