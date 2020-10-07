@@ -9,5 +9,6 @@ https://svjunic-sandbox.github.io/react-state/
 - react-redux(redux-toolkit)
 
 ### memo
-https://redux-toolkit.js.org/
-https://redux-toolkit.js.org/api/createAsyncThunk
+https://redux-toolkit.js.org/  
+https://redux-toolkit.js.org/api/createAsyncThunk  
+https://github.com/reduxjs/cra-template-redux
