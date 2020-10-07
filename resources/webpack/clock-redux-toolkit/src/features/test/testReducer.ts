@@ -48,20 +48,23 @@ const testState = createSlice({
     //  },
     //// }}}
     builder.addCase(asyncGetData.pending, (state, action) => {
-      console.log(action.type);
+      //console.log(action.type);
+      // -> servertime/head/pending
       return {
         ...state,
       };
     });
     builder.addCase(asyncGetData.fulfilled, (state, action) => {
-      console.log(action.type);
+      //console.log(action.type);
+      // -> servertime/head/fulfilled
       return {
         ...state,
         apiResult: action.payload.date,
       };
     });
     builder.addCase(asyncGetData.rejected, (state, action) => {
-      console.log(action.type);
+      //console.log(action.type);
+      // -> servertime/head/rejected
       return {
         ...state,
       };

@@ -3,7 +3,6 @@ import TestProps from '~/container/test/index.tsx';
 //import { setText, asyncGetData } from '~/features/test/action.ts';
 
 const Test: React.FC<ITestState & ITestHandler> = ({ text, setText, apiResult, asyncGetData }) => {
-  console.log(text);
   const [localText, setLocalText] = useState(text);
 
   useEffect(() => {

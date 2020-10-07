@@ -1,6 +1,6 @@
 declare type AppState = {
-  ScreenReducer: IScreenState;
-  ScreenSettingReducer: IScreenSettingState;
+  screen: IScreenState;
+  screenSetting: IScreenSettingState;
   //TestReducer: ITestState;
   test: ITestState;
 };
@@ -31,6 +31,15 @@ declare interface IScreenSettingState {
   fontColor: IColor;
   backgroundColor: IColor;
   enabledShowMilliseconds: boolean;
+}
+
+declare interface IScreenSettingHandler {
+  setFontSize: (num: string | number) => Action<string | number>;
+  setFontFamily: (num: string) => Action<string>;
+  setFontWeight: (num: string | number) => Action<string | number>;
+  setFontColor: (color: IColor) => Action<IColor>;
+  setBackgroundColor: (color: IColor) => Action<IColor>;
+  setEnabledShowMilliseconds: (isEnabled: boolean) => Action<boolean>;
 }
 
 declare interface ITestHandler {
