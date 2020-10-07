@@ -67,6 +67,15 @@ module.exports = function () {
       rules: [
         {
           test: /\.tsx?$/,
+          exclude: [/node_modules/, /types/],
+          use: [
+            {
+              loader: 'babel-loader',
+            },
+          ],
+        },
+        {
+          test: /\.tsx?$/,
           //exclude: [/node_modules/, /types/],
           exclude: [/types/],
           use: [

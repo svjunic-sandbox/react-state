@@ -1,0 +1,58 @@
+{
+  "env": {
+    "development": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "debug": true,
+            "loose": true,
+            "modules": false,
+            "targets": {
+              "node": "current",
+              "browsers": [
+                "last 2 Chrome versions",
+                "last 2 Edge versions",
+                "Explorer >= 11",
+                "last 2 Firefox versions",
+                "last 2 Safari versions",
+                "iOS >= 8",
+                "Android >= 4.4.4",
+                "last 2 ChromeAndroid versions"
+              ]
+            },
+            "useBuiltIns": "usage",
+            "corejs": 3
+          }
+        ]
+      ]
+    },
+    "production": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "debug": true,
+            "loose": true,
+            "modules": false,
+            "targets": {
+              "node": "current",
+              "browsers": [
+                "last 2 Chrome versions",
+                "last 2 Edge versions",
+                "Explorer >= 11",
+                "last 2 Firefox versions",
+                "last 2 Safari versions",
+                "iOS >= 8",
+                "Android >= 4.4.4",
+                "last 2 ChromeAndroid versions"
+              ]
+            },
+            "useBuiltIns": "usage",
+            "corejs": 3
+          }
+        ]
+      ]
+    }
+  }
+}
