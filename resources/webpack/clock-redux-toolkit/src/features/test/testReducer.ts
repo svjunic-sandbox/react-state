@@ -51,4 +51,4 @@ const testState = createSlice({
 
 export const { setText } = testState.actions;
 
-export default testState;
+export default testState.reducer;
