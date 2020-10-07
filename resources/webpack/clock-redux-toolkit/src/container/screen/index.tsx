@@ -1,9 +1,8 @@
 import { Action } from 'typescript-fsa';
 
-//import {} from '~/State/Screen/action.ts';
 import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import Screen from '~/Components/Screen.tsx';
+import Screen from '~/components/screen.tsx';
 
 export const mapStateToProps = (appState: AppState) => {
   return {

@@ -4,9 +4,9 @@ import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 
-import { setText, asyncGetData } from '~/State/Test/action.ts';
+import { setText, asyncGetData } from '~/features/test/action.ts';
 
-import Test from '~/Components/Test.tsx';
+import Test from '~/components/test.tsx';
 
 export const mapStateToProps = (appState: AppState) => {
   return {

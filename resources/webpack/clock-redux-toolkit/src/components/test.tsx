@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import TestProps from '~/Container/Test/index.tsx';
-import { setText, asyncGetData } from '~/State/Test/action.ts';
+import TestProps from '~/container/test/index.tsx';
+import { setText, asyncGetData } from '~/features/test/action.ts';
 
 const Test: React.FC<ITestState & ITestHandler> = ({ text, setText, apiResult, asyncGetData }) => {
   const [localText, setLocalText] = useState(text);

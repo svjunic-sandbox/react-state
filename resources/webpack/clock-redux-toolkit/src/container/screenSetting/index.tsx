@@ -1,10 +1,10 @@
 import { Action } from 'typescript-fsa';
 import { ThunkDispatch } from 'redux-thunk';
 
-import { setFontSize, setFontWeight, setFontFamily, setFontColor, setBackgroundColor, setEnabledShowMilliseconds } from '~/State/ScreenSetting/action.ts';
+import { setFontSize, setFontWeight, setFontFamily, setFontColor, setBackgroundColor, setEnabledShowMilliseconds } from '~/features/screenSetting/action.ts';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import ScreenSetting from '~/Components/ScreenSetting.tsx';
+import ScreenSetting from '~/components/screenSetting.tsx';
 
 export interface IScreenSettingHandler {
   setFontSize: (num: string | number) => Action<string | number>;
