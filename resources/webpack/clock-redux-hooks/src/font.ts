@@ -114,7 +114,7 @@ export const WEBFONT_FAMILIES_LIST: IFontSet[] = [
   },
   {
     fontName: 'Londrina Outline',
-    fontsizelist: '400',
+    fontsizelist: '4',
   },
   {
     fontName: 'Geo',
