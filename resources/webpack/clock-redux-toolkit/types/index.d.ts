@@ -1,7 +1,8 @@
 declare type AppState = {
   ScreenReducer: IScreenState;
   ScreenSettingReducer: IScreenSettingState;
-  TestReducer: ITestState;
+  //TestReducer: ITestState;
+  test: ITestState;
 };
 
 declare interface ITestState {
@@ -34,7 +35,8 @@ declare interface IScreenSettingState {
 
 declare interface ITestHandler {
   setText: (text: string) => Action<string>;
-  asyncGetData: (url: string) => Action<{ string }>;
+  //asyncGetData: (url: string) => Action<{ string }>;
+  asyncGetData: () => Action<{ string }>;
 }
 
 declare interface IScreenHandler {}

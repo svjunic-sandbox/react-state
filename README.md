@@ -10,5 +10,6 @@ https://svjunic-sandbox.github.io/react-state/
 
 ### memo
 https://redux-toolkit.js.org/  
+https://redux-toolkit.js.org/usage/usage-with-typescript  
 https://redux-toolkit.js.org/api/createAsyncThunk  
 https://github.com/reduxjs/cra-template-redux
