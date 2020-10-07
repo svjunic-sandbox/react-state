@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { SketchPicker } from 'react-color';
 
-import { setFontSize, setFontFamily, setFontWeight, setFontColor, setBackgroundColor, setEnabledShowMilliseconds } from '~/features/screenSetting/action.ts';
-import { IScreenSettingHandler } from '~/container/screenSetting/index.tsx';
+import { setFontSize, setFontFamily, setFontWeight, setFontColor, setBackgroundColor, setEnabledShowMilliseconds } from '~/features/screenSetting/screenSettingReducer.ts';
 import { FONT_NAME_LIST, getEnabledFontSize } from '~/font.ts';
 import { useSessionStorage } from 'beautiful-react-hooks';
 

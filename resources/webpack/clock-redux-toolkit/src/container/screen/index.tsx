@@ -1,16 +1,16 @@
-import { Action } from 'typescript-fsa';
-
-import { bindActionCreators, Dispatch } from 'redux';
+import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
+import { ThunkDispatch } from 'redux-thunk';
+
 import Screen from '~/components/screen.tsx';
 
 export const mapStateToProps = (appState: AppState) => {
   return {
-    ...appState.ScreenSettingReducer,
+    ...appState.screenSetting,
   };
 };
 
-export const mapDispatchToProps = (dispatch: Dispatch<Action<any>>) => {
+export const mapDispatchToProps = (dispatch: Dispatch<any> | ThunkDispatch<IAsyncGetDataParams, IAsyncDataGetResult, any>) => {
   return {};
 };
 
