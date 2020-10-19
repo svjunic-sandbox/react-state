@@ -1,31 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { SketchPicker } from 'react-color';
 
-import { setFontSize, setFontFamily, setFontWeight, setFontColor, setBackgroundColor, setEnabledShowMilliseconds } from '~/features/screenSetting/screenSettingReducer.ts';
 import { FONT_NAME_LIST, getEnabledFontSize } from '~/font.ts';
-import { useSessionStorage } from 'beautiful-react-hooks';
 
-import RadioControl from '~/components/radioControl/index.tsx';
 import SelectControl from '~/components/selectControl/index.tsx';
 
 const ScreenSetting: React.FC<IScreenSettingState & IScreenSettingHandler> = ({ fontSize, fontFamily, fontWeight, fontColor, backgroundColor, enabledShowMilliseconds, setFontSize, setFontFamily, setFontWeight, setFontColor, setBackgroundColor, setEnabledShowMilliseconds }) => {
-  const [minFontSize, setMinFontSize] = useState(28);
-  const [maxFontSize, setMaxFontSize] = useState(100);
+  const [minFontSize] = useState(fontSize);
+  const [maxFontSize] = useState(100);
 
   const [fontFamilyOptionList, setFontFamilyOptions] = useState([] as IOption[]);
   const [fontSizeOptionList, setFontSizeOptionList] = useState([] as IOption[]);
   const [fontWeightOptionList, setFontWeightOptionList] = useState([] as IOption[]);
-
-  const fontWeightOptions = (() => {
-    const result: IOption[] = [];
-    for (let index = minFontSize; index < maxFontSize; index++) {
-      result.push({
-        value: index.toString(),
-        valueName: index.toString(),
-      });
-    }
-    return result;
-  })();
 
   useEffect(() => {
     setFontFamilyOptions(
@@ -47,8 +33,6 @@ const ScreenSetting: React.FC<IScreenSettingState & IScreenSettingHandler> = ({ 
       }
       return result;
     });
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -78,19 +62,18 @@ const ScreenSetting: React.FC<IScreenSettingState & IScreenSettingHandler> = ({ 
   useEffect(() => {
     const defaultValue = 28;
     setFontSize(defaultValue);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleFontSizeChange = (e) => {
+  const handleFontSizeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFontSize(e.target.value);
   };
 
-  const handleFontFamilyChange = (e) => {
+  const handleFontFamilyChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const fontName = e.target.value;
     setFontFamily(fontName);
   };
 
-  const handleFontWeightChange = (e) => {
+  const handleFontWeightChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFontWeight(e.target.value);
   };
 
