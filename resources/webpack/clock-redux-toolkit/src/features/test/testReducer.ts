@@ -17,7 +17,7 @@ export const asyncGetData = createAsyncThunk<headServerTimeReturnType>(
     const asyncResp = await axios.head('./');
 
     // 遅延の動作を確認するために無理やり遅延
-    await new Promise(function (resolve) {
+    await new Promise(function(resolve) {
       setTimeout(() => {
         resolve();
       }, 5000);
@@ -47,7 +47,7 @@ const testState = createSlice({
     //    };
     //  },
     //// }}}
-    builder.addCase(asyncGetData.pending, (state, action) => {
+    builder.addCase(asyncGetData.pending, (state) => {
       //console.log(action.type);
       // -> servertime/head/pending
       return {
@@ -62,7 +62,7 @@ const testState = createSlice({
         apiResult: action.payload.date,
       };
     });
-    builder.addCase(asyncGetData.rejected, (state, action) => {
+    builder.addCase(asyncGetData.rejected, (state) => {
       //console.log(action.type);
       // -> servertime/head/rejected
       return {
