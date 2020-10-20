@@ -10,9 +10,6 @@
     "webpack": "NODE_ENV=development webpack --config webpack.config.js --colors --display-error-details --progress --mode development",
     "minify": "NODE_ENV=production webpack --config webpack.config.js --colors --display-error-details --progress --mode production"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "browserslist": {
     "production": [
       ">0.2%",

@@ -5,8 +5,8 @@ import { FONT_NAME_LIST, getEnabledFontSize } from '~/font.ts';
 
 import SelectControl from '~/components/selectControl/index.tsx';
 
-const ScreenSetting: React.FC<IScreenSettingState & IScreenSettingHandler> = ({ fontSize, fontFamily, fontWeight, fontColor, backgroundColor, enabledShowMilliseconds, setFontSize, setFontFamily, setFontWeight, setFontColor, setBackgroundColor, setEnabledShowMilliseconds }) => {
-  const [minFontSize] = useState(fontSize);
+const ScreenSetting: React.FC<IScreenSettingState & IScreenSettingHandler> = ({ fontFamily, fontWeight, fontColor, backgroundColor, enabledShowMilliseconds, setFontSize, setFontFamily, setFontWeight, setFontColor, setBackgroundColor, setEnabledShowMilliseconds }) => {
+  const [minFontSize] = useState(14);
   const [maxFontSize] = useState(100);
 
   const [fontFamilyOptionList, setFontFamilyOptions] = useState([] as IOption[]);
@@ -33,17 +33,15 @@ const ScreenSetting: React.FC<IScreenSettingState & IScreenSettingHandler> = ({ 
       }
       return result;
     });
-  }, []);
+  }, [minFontSize, maxFontSize]);
 
   useEffect(() => {
     if (fontFamilyOptionList.length) {
       setFontFamily(fontFamilyOptionList[0].value);
     }
-  }, [fontFamilyOptionList]);
+  }, [fontFamilyOptionList, setFontFamily]);
 
   useEffect(() => {
-    console.log(fontFamily);
-
     setFontWeightOptionList(() => {
       return getEnabledFontSize(fontFamily).map((fontWeight) => {
         return {
@@ -57,12 +55,12 @@ const ScreenSetting: React.FC<IScreenSettingState & IScreenSettingHandler> = ({ 
     if (enabledFontWeightList.indexOf(fontWeight) === -1) {
       setFontWeight(enabledFontWeightList[0]);
     }
-  }, [fontFamily]);
+  }, [fontFamily, fontWeight, setFontWeight]);
 
   useEffect(() => {
     const defaultValue = 28;
     setFontSize(defaultValue);
-  }, []);
+  }, [setFontSize]);
 
   const handleFontSizeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFontSize(e.target.value);
@@ -85,7 +83,7 @@ const ScreenSetting: React.FC<IScreenSettingState & IScreenSettingHandler> = ({ 
     setBackgroundColor(color.rgb);
   };
 
-  const handleEnabledShowMilliseconds = (e) => {
+  const handleEnabledShowMilliseconds = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.checked);
     setEnabledShowMilliseconds(e.target.checked);
   };
