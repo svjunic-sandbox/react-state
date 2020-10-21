@@ -1,8 +1,7 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import React from 'react';
 
 const SelectControl: React.FC<SelectControlProps> = ({ title, name, defaultValue, options, onChange }) => {
-  const [localTitle, setLocalTitle] = useState(title);
-
+  console.log(title, name, defaultValue, options, onChange);
   const createOptionTag = () => {
     return (
       <>
@@ -30,4 +29,4 @@ const SelectControl: React.FC<SelectControlProps> = ({ title, name, defaultValue
   return <>{options.length > 0 ? createOptionTag() : null}</>;
 };
 
-export default SelectControl;
+export default React.memo(SelectControl);
