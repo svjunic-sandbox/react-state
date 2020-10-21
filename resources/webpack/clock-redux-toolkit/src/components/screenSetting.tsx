@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { ColorResult, SketchPicker } from 'react-color';
 
 import { FONT_NAME_LIST, getEnabledFontSize } from '~/font.ts';
@@ -33,17 +33,19 @@ const ScreenSetting: React.FC<IScreenSettingState & IScreenSettingHandler> = ({ 
       }
       return result;
     });
+  }, [minFontSize, maxFontSize]);
 
-    // eslint-disable-next-line react-app/react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
+  const fontFamilyOptionsUpdateCallback = useCallback(() => {
     if (fontFamilyOptionList.length) {
       setFontFamily(fontFamilyOptionList[0].value);
     }
   }, [fontFamilyOptionList, setFontFamily]);
 
   useEffect(() => {
+    fontFamilyOptionsUpdateCallback();
+  }, [fontFamilyOptionsUpdateCallback]);
+
+  const fontWeightOptionsUpdateCallback = useCallback(() => {
     setFontWeightOptionList(() => {
       return getEnabledFontSize(fontFamily).map((fontWeight) => {
         return {
@@ -60,22 +62,35 @@ const ScreenSetting: React.FC<IScreenSettingState & IScreenSettingHandler> = ({ 
   }, [fontFamily, fontWeight, setFontWeight]);
 
   useEffect(() => {
+    fontWeightOptionsUpdateCallback();
+  }, [fontWeightOptionsUpdateCallback]);
+
+  useEffect(() => {
     const defaultValue = 28;
     setFontSize(defaultValue);
   }, [setFontSize]);
 
-  const handleFontSizeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFontSize(e.target.value);
-  };
+  const handleFontSizeChangeCallback = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setFontSize(e.target.value);
+    },
+    [setFontSize]
+  );
 
-  const handleFontFamilyChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const fontName = e.target.value;
-    setFontFamily(fontName);
-  };
+  const handleFontFamilyChangeCallback = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const fontName = e.target.value;
+      setFontFamily(fontName);
+    },
+    [setFontFamily]
+  );
 
-  const handleFontWeightChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFontWeight(e.target.value);
-  };
+  const handleFontWeightChangeCallback = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setFontWeight(e.target.value);
+    },
+    [setFontWeight]
+  );
 
   const handleFontColorChange = (color: ColorResult) => {
     setFontColor(color.rgb);
@@ -85,19 +100,22 @@ const ScreenSetting: React.FC<IScreenSettingState & IScreenSettingHandler> = ({ 
     setBackgroundColor(color.rgb);
   };
 
-  const handleEnabledShowMilliseconds = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.checked);
-    setEnabledShowMilliseconds(e.target.checked);
-  };
+  const handleEnabledShowMillisecondsCallback = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      console.log(e.target.checked);
+      setEnabledShowMilliseconds(e.target.checked);
+    },
+    [setEnabledShowMilliseconds]
+  );
 
   return (
     <div className="setting">
       <fieldset className="setting-fieldset">
         <legend className="setting-legend">font</legend>
         <dl className="setting-font">
-          <SelectControl title="font-family" defaultValue={fontFamilyOptionList[0]} options={fontFamilyOptionList} name="font-family" onChange={handleFontFamilyChange} />
-          <SelectControl title="font-size" defaultValue={fontSizeOptionList[0]} options={fontSizeOptionList} name="font-size" onChange={handleFontSizeChange} />
-          <SelectControl title="font-weight" defaultValue={fontWeightOptionList[0]} options={fontWeightOptionList} name="font-weight" onChange={handleFontWeightChange} />
+          <SelectControl title="font-family" defaultValue={fontFamilyOptionList[0]} options={fontFamilyOptionList} name="font-family" onChange={handleFontFamilyChangeCallback} />
+          <SelectControl title="font-size" defaultValue={fontSizeOptionList[0]} options={fontSizeOptionList} name="font-size" onChange={handleFontSizeChangeCallback} />
+          <SelectControl title="font-weight" defaultValue={fontWeightOptionList[0]} options={fontWeightOptionList} name="font-weight" onChange={handleFontWeightChangeCallback} />
         </dl>
       </fieldset>
       <fieldset className="setting-fieldset">
@@ -119,7 +137,7 @@ const ScreenSetting: React.FC<IScreenSettingState & IScreenSettingHandler> = ({ 
         <legend className="config">field</legend>
         <div className="field">
           <label>
-            <input type="checkbox" value="milliseconds" checked={enabledShowMilliseconds} onChange={handleEnabledShowMilliseconds} />
+            <input type="checkbox" value="milliseconds" checked={enabledShowMilliseconds} onChange={handleEnabledShowMillisecondsCallback} />
             <span>show milliseconds</span>
           </label>
         </div>
@@ -128,4 +146,4 @@ const ScreenSetting: React.FC<IScreenSettingState & IScreenSettingHandler> = ({ 
   );
 };
 
-export default ScreenSetting;
+export default React.memo(ScreenSetting);
