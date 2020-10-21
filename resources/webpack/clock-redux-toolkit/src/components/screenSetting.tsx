@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { SketchPicker } from 'react-color';
+import { ColorResult, SketchPicker } from 'react-color';
 
 import { FONT_NAME_LIST, getEnabledFontSize } from '~/font.ts';
 
@@ -77,11 +77,11 @@ const ScreenSetting: React.FC<IScreenSettingState & IScreenSettingHandler> = ({ 
     setFontWeight(e.target.value);
   };
 
-  const handleFontColorChange = (color) => {
+  const handleFontColorChange = (color: ColorResult) => {
     setFontColor(color.rgb);
   };
 
-  const handleBackgroundColorChange = (color) => {
+  const handleBackgroundColorChange = (color: ColorResult) => {
     setBackgroundColor(color.rgb);
   };
 

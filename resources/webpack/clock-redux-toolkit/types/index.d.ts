@@ -15,7 +15,7 @@ declare interface IColor {
   r: number;
   g: number;
   b: number;
-  a: number;
+  a?: number;
 }
 
 declare type IAsyncGetDataParams = { url: string };
