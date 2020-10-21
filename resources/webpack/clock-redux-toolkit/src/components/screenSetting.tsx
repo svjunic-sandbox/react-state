@@ -5,9 +5,14 @@ import { FONT_NAME_LIST, getEnabledFontSize } from '~/font.ts';
 
 import SelectControl from '~/components/selectControl/index.tsx';
 
-const ScreenSetting: React.FC<IScreenSettingState & IScreenSettingHandler> = ({ fontFamily, fontWeight, fontColor, backgroundColor, enabledShowMilliseconds, setFontSize, setFontFamily, setFontWeight, setFontColor, setBackgroundColor, setEnabledShowMilliseconds }) => {
+import { initialState as ScreenSettingInititalState } from '~/features/screenSetting/screenSettingReducer.ts';
+
+const ScreenSetting: React.FC<IScreenSettingState & IScreenSettingHandler> = ({ fontFamily, fontWeight, enabledShowMilliseconds, setFontSize, setFontFamily, setFontWeight, setFontColor, setBackgroundColor, setEnabledShowMilliseconds }) => {
   const [minFontSize] = useState(14);
   const [maxFontSize] = useState(100);
+
+  const [currentFontColor] = useState(ScreenSettingInititalState.fontColor);
+  const [currentBackgroundColor] = useState(ScreenSettingInititalState.backgroundColor);
 
   const [fontFamilyOptionList, setFontFamilyOptions] = useState([] as IOption[]);
   const [fontSizeOptionList, setFontSizeOptionList] = useState([] as IOption[]);
@@ -92,13 +97,19 @@ const ScreenSetting: React.FC<IScreenSettingState & IScreenSettingHandler> = ({ 
     [setFontWeight]
   );
 
-  const handleFontColorChange = (color: ColorResult) => {
-    setFontColor(color.rgb);
-  };
+  const handleFontColorChangeCallback = useCallback(
+    (color: ColorResult) => {
+      setFontColor(color.rgb);
+    },
+    [setFontColor]
+  );
 
-  const handleBackgroundColorChange = (color: ColorResult) => {
-    setBackgroundColor(color.rgb);
-  };
+  const handleBackgroundColorChangeCallback = useCallback(
+    (color: ColorResult) => {
+      setBackgroundColor(color.rgb);
+    },
+    [setBackgroundColor]
+  );
 
   const handleEnabledShowMillisecondsCallback = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -123,13 +134,13 @@ const ScreenSetting: React.FC<IScreenSettingState & IScreenSettingHandler> = ({ 
         <div className="font-color">
           <label>
             <span>font-color</span>
-            <SketchPicker color={fontColor} onChange={handleFontColorChange} />
+            <SketchPicker color={currentFontColor} onChange={handleFontColorChangeCallback} />
           </label>
         </div>
         <div className="background-color">
           <label>
             <span>background-color</span>
-            <SketchPicker color={backgroundColor} onChange={handleBackgroundColorChange} />
+            <SketchPicker color={currentBackgroundColor} onChange={handleBackgroundColorChangeCallback} />
           </label>
         </div>
       </fieldset>
@@ -146,4 +157,5 @@ const ScreenSetting: React.FC<IScreenSettingState & IScreenSettingHandler> = ({ 
   );
 };
 
+//export default React.memo(ScreenSetting);
 export default React.memo(ScreenSetting);

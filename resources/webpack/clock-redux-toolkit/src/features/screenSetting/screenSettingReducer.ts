@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState: IScreenSettingState = {
+export const initialState: IScreenSettingState = {
   fontSize: 28,
   fontFamily: 'sans-serif',
   fontWeight: 400,
