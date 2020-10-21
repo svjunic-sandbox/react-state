@@ -33,7 +33,9 @@ const ScreenSetting: React.FC<IScreenSettingState & IScreenSettingHandler> = ({ 
       }
       return result;
     });
-  }, [minFontSize, maxFontSize]);
+
+    // eslint-disable-next-line react-app/react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (fontFamilyOptionList.length) {

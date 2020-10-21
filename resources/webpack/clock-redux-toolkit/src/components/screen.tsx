@@ -27,7 +27,7 @@ const Screen: React.FC<screenProps & IScreenSettingState> = ({ fontSize, fontFam
     finishAt: -1,
   };
 
-  const onFinish = useRequestAnimationFrame((progress, next) => {
+  const onFinish = useRequestAnimationFrame((progress: Float32List, next: Function) => {
     setDate(new Date());
     next();
   }, options);
@@ -46,7 +46,7 @@ const Screen: React.FC<screenProps & IScreenSettingState> = ({ fontSize, fontFam
       backgroundColor: ColorToRGBA(backgroundColor),
     });
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-app/react-hooks/exhaustive-deps
   }, [fontSize, fontFamily, fontWeight, fontColor, backgroundColor]);
 
   useEffect(() => {
@@ -65,7 +65,7 @@ const Screen: React.FC<screenProps & IScreenSettingState> = ({ fontSize, fontFam
     setSss2(sss[1]);
     setSss3(sss[2]);
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-app/react-hooks/exhaustive-deps
   }, [date]);
 
   return (
