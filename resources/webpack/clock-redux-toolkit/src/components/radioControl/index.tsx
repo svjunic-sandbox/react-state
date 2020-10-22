@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const RadioControl: React.FC<RadioControlProps> = ({ controlType, label, name, value, defaultChecked, onChange }) => {
   const [localLabel, setLocallabel] = useState('');
@@ -13,6 +13,7 @@ const RadioControl: React.FC<RadioControlProps> = ({ controlType, label, name, v
     }
 
     if (defaultChecked) setChecked(defaultChecked);
+    // eslint-disable-next-line react-app/react-hooks/exhaustive-deps
   }, []);
 
   return (
