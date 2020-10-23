@@ -1,4 +1,11 @@
 import { combineReducers } from '@reduxjs/toolkit';
-const rootReducer = combineReducers({});
-export type RootState = ReturnType<typeof rootReducer>;
-export default rootReducer;
+
+import testReducer from './features/test/testReducer';
+import screenReducer from './features/screen/screenReducer';
+import screenSettingReducer from './features/screenSetting/screenSettingReducer';
+
+export const rootReducer = combineReducers({
+  test: testReducer,
+  screen: screenReducer,
+  screenSetting: screenSettingReducer,
+});

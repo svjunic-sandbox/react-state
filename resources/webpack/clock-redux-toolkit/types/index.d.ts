@@ -83,3 +83,7 @@ declare interface SelectControlProps {
   options: IOption[];
   onChange: (e: ChangeEvent) => void;
 }
+
+declare interface headServerTimeReturnType {
+  date: string;
+}

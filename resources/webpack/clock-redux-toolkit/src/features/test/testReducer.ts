@@ -6,18 +6,13 @@ const initialState: ITestState = {
   apiEndpoint: '',
   apiResult: '',
 };
-
-type headServerTimeReturnType = {
-  date: string;
-};
-
 export const asyncGetData = createAsyncThunk<headServerTimeReturnType>(
   'servertime/head',
   async (): Promise<headServerTimeReturnType> => {
     const asyncResp = await axios.head('./');
 
     // 遅延の動作を確認するために無理やり遅延
-    await new Promise(function(resolve) {
+    await new Promise(function (resolve) {
       setTimeout(() => {
         resolve();
       }, 5000);
@@ -40,13 +35,6 @@ const testState = createSlice({
 
   // redux-thunk
   extraReducers: (builder) => {
-    //// {{{ typescripotだと型がうまく行かず、この書き方はできないぽい
-    //  [`${asyncGetData.fulfilled}`]: (state, action) => {
-    //    return {
-    //      ...state,
-    //    };
-    //  },
-    //// }}}
     builder.addCase(asyncGetData.pending, (state) => {
       //console.log(action.type);
       // -> servertime/head/pending
