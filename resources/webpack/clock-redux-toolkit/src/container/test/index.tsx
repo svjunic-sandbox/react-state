@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { ThunkDispatch } from 'redux-thunk';
+import { ThunkDispatch } from '@reduxjs/toolkit';
 
 import { setText, asyncGetData } from '~/features/test/testReducer.ts';
 

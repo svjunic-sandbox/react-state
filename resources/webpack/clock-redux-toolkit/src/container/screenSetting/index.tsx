@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { ThunkDispatch } from 'redux-thunk';
+import { ThunkDispatch } from '@reduxjs/toolkit';
 
 import { setFontSize, setFontWeight, setFontFamily, setFontColor, setBackgroundColor, setEnabledShowMilliseconds } from '~/features/screenSetting/screenSettingReducer.ts';
 
