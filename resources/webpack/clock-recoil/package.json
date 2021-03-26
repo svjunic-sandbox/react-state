@@ -35,6 +35,7 @@
     "@types/uglifyjs-webpack-plugin": "^1.1.1",
     "@types/webfontloader": "^1.6.32",
     "@types/webpack": "^5.0.0",
+    "@zerollup/ts-transform-paths": "^1.7.18",
     "axios": "^0.21.1",
     "beautiful-react-hooks": "^0.31.1",
     "concurrently": "^6.0.0",

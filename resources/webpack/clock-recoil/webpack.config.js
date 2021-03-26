@@ -53,7 +53,7 @@ module.exports = function () {
     },
 
     // 拡張子の省略（Duno次第でだめかも）
-    extensions: ["tsx", ".ts", ".js", ".jsx"],
+    extensions: [".tsx", ".ts", ".js", ".jsx"],
 
     // モジュール検索
     modules: [path.resolve(__dirname, "src"), "node_modules"],

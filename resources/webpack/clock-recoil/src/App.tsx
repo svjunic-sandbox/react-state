@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 //import store from '~/store';
 
-import TodoList from '~/Components/TodoList.tsx';
+import TodoList from '~/Components/TodoList';
 
 import {
   RecoilRoot,
