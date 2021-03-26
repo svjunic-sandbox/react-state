@@ -5,8 +5,7 @@
     "baseUrl": "./",
     "rootDir": "./src/",
     "paths": {
-      "~/*": ["./src/*"],
-      "~": ["./src"]
+      "~/*": ["./src/*"]
     },
     "lib": [
       "dom",
@@ -22,6 +21,7 @@
 
     // TSのエラーが有った場合コンパイルしない
     "noEmitOnError": true,
+    "experimentalDecorators": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -35,10 +35,10 @@
     //"inlineSourceMap": true,               /* Emit a single file with source maps instead of having a separate file. */
     //"inlineSources": true,                 /* Emit the source alongside the sourcemaps within a single file; requires '--inlineSourceMap' or '--sourceMap' to be set. */
 
-
+    "plugins": [{ "transform": "@zerollup/ts-transform-paths" }]
   },
   "include": [
-    "src",
-    "types"
+    "src/**/*",
+    "types/**/*"
   ]
 }

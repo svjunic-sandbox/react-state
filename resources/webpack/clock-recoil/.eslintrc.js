@@ -6,7 +6,7 @@
 module.exports = {
   root: true,
   extends: ['eslint:recommended', 'plugin:react-app/recommended'],
-  plugins: ['react', 'react-app', '@typescript-eslint'],
+  plugins: ['react', 'react-hooks', '@typescript-eslint'],
   rules: {
     'no-console': 0,
     'no-alert': 0,
@@ -25,5 +25,11 @@ module.exports = {
         SwitchCase: 1,
       },
     ],
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': [
+      'warn', {
+        'additionalHooks': 'useRecoilCallback'
+      }
+    ]
   },
 };

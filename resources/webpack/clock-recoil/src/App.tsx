@@ -1,24 +1,21 @@
 import React, { useState } from 'react';
-import store from '~/store.ts';
+//import store from '~/store';
 
-// container
-import Screen from '~/Container/Screen/index.tsx';
-import ScreenSetting from '~/Container/ScreenSetting/index.tsx';
-import Test from '~/Container/Test/index.tsx';
+import TodoList from '~/Components/TodoList.tsx';
 
-import { Provider } from 'react-redux';
+import {
+  RecoilRoot,
+  atom,
+  selector,
+  useRecoilState,
+  useRecoilValue,
+} from 'recoil';
 
 const App: React.FC = () => {
   return (
-    <Provider store={store}>
-      <div className="App">
-        <Screen />
-        <ScreenSetting />
-        <hr className="hr" />
-        <Test></Test>
-        <hr className="hr" />
-      </div>
-    </Provider>
+    <RecoilRoot>
+      <TodoList></TodoList>
+    </RecoilRoot>
   );
 };
 

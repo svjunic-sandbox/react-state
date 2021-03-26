@@ -7,8 +7,8 @@
     "start": "concurrently \"npm run develop\" \"npm run server\"",
     "server": "lite-server -c server.json",
     "develop": "npm run webpack -- --devtool inline-source-map --watch",
-    "webpack": "BABEL_ENV=development NODE_ENV=development webpack --config webpack.config.js --mode development --colors --display-error-details --progress",
-    "minify": "BABEL_ENV=production NODE_ENV=production webpack --config webpack.config.js --colors --display-error-details --progress --mode production"
+    "webpack": "BABEL_ENV=development NODE_ENV=development webpack --config webpack.config.js --color --mode development --progress",
+    "minify": "BABEL_ENV=production NODE_ENV=production webpack --config webpack.config.js --color --progress --mode production"
   },
   "browserslist": {
     "production": [
@@ -58,6 +58,7 @@
     "react": "^17.0.2",
     "react-color": "^2.19.3",
     "react-dom": "^17.0.2",
+    "recoil": "^0.1.3",
     "terser-webpack-plugin": "^5.1.1"
   }
 }
