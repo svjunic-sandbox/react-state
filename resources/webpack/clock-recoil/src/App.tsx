@@ -1,7 +1,7 @@
 import React from 'react';
 
-import TodoList1 from '~/Components/TodoList1';
-import TodoList2 from '~/Components/TodoList2';
+import TodoList1 from '~/components/TodoList1';
+import TodoList2 from '~/components/TodoList2';
 
 import { RecoilRoot } from 'recoil';
 
