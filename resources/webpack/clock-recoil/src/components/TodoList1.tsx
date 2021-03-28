@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRecoilValue } from 'recoil';
 import TodoItem from './TodoItem';
-import { todoListState } from '~/Store/todolist1';
+import todoListState from '~/store/todolist1';
 import Input1 from './Input1';
 
 const style = {
@@ -18,6 +18,7 @@ const TodoList: React.FC = () => {
 
   return (
     <div style={style}>
+      todolist1
       <Input1 />
       <ul>
         {todoList.map((todoItem) => (

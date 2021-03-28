@@ -1,8 +1,12 @@
 import React from 'react';
 
+const liStyle = {
+  fontSize: '1.6rem',
+};
+
 const TodoItem: React.FC<ITodoItemProps> = (props) => {
   return (
-    <li>
+    <li style={liStyle}>
       {props.id}:{props.text}
     </li>
   );

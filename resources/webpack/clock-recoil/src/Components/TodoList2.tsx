@@ -1,23 +1,30 @@
 import React from 'react';
-import { useRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import TodoItem from './TodoItem';
-import { todoListState } from '~/store/todolist2';
+import todoListState from '~/store/todolist2';
+import Input1 from './Input2';
 
 const style = {
   padding: '20px',
-  backgroundColor: '#ffe',
+  backgroundColor: '#ffc',
 };
 
 const TodoList: React.FC = () => {
-  // useRecoilValue() のHooks APIを使って
-  // コンポーネントに適用
-  const [todoList, setTodoList] = useRecoilState(todoListState);
+  // useStateみたいにsetも使うなら
+  //const [todoList, setTodoList] = useRecoilState(todoListState);
+
+  // valueだけでよいならこっち
+  const todoList = useRecoilValue(todoListState);
 
   return (
     <div style={style}>
-      {todoList.map((todoItem) => (
-        <TodoItem key={todoItem.id} id={todoItem.id} text={todoItem.text} />
-      ))}
+      todolist2
+      <Input1 />
+      <ul>
+        {todoList.map((todoItem) => (
+          <TodoItem key={todoItem.id} id={todoItem.id} text={todoItem.text} />
+        ))}
+      </ul>
     </div>
   );
 };

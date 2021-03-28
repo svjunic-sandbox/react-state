@@ -1,6 +1,6 @@
 import { atom } from 'recoil';
 
-export const todoListState = atom({
+export default atom({
   key: 'todoListState2',
   default: [] as ITodoList,
 });

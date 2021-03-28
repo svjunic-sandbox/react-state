@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useRecoilState } from 'recoil';
-import todoListState from '~/store/todolist1';
+import todoListState from '~/store/todolist2';
 
 const inputStyle = {
   padding: '10px',
