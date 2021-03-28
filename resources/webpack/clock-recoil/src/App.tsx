@@ -5,6 +5,7 @@ import TodoList2 from '~/components/TodoList2';
 
 import { RecoilRoot } from 'recoil';
 import Lastupdate from './components/Lastupdate';
+import Servertime from './components/Servertime';
 
 // atom : stateの保持
 // selector :stateを動的に変更する関数
@@ -26,6 +27,8 @@ const App: React.FC = () => {
       <Lastupdate></Lastupdate>
       <TodoList1></TodoList1>
       <TodoList2></TodoList2>
+      <hr style={hrStyle} />
+      <Servertime></Servertime>
     </RecoilRoot>
   );
 };
