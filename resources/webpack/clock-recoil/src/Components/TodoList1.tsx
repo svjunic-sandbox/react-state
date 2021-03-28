@@ -19,9 +19,11 @@ const TodoList: React.FC = () => {
   return (
     <div style={style}>
       <Input1 />
-      {todoList.map((todoItem) => (
-        <TodoItem key={todoItem.id} id={todoItem.id} text={todoItem.text} />
-      ))}
+      <ul>
+        {todoList.map((todoItem) => (
+          <TodoItem key={todoItem.id} id={todoItem.id} text={todoItem.text} />
+        ))}
+      </ul>
     </div>
   );
 };
