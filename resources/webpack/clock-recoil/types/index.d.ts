@@ -4,13 +4,12 @@ declare interface ITestState {
   apiResult?: string;
 }
 
-declare interface IColor {
-  r: number;
-  g: number;
-  b: number;
-  a: number;
+declare interface ITodoItem {
+  id: string;
+  text: string;
 }
 
-declare type IAsyncGetDataParams = { url: string };
-declare type IAsyncDataGetResult = { date: string };
-declare type IAsyncDataGetError = Error;
+declare type ITodoItemProps = ITodoItem;
+declare type ITodoList = ITodoItem[];
+
+declare interface IInputProps {}
